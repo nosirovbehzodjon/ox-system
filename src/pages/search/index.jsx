@@ -101,7 +101,6 @@ const Search = () => {
                 y?.name?.toLocaleLowerCase().indexOf(search)
             );
         });
-    console.log(undefined ? "" : "name".toLocaleLowerCase());
     return (
         <div>
             {contextHolder}
