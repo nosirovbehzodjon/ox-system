@@ -1,0 +1,151 @@
+.login_container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(23, 203, 224);
+    background: linear-gradient(
+        90deg,
+        rgba(23, 203, 224, 1) 0%,
+        rgba(82, 184, 225, 1) 0%,
+        rgba(124, 197, 203, 1) 100%,
+        rgba(104, 229, 246, 1) 100%
+    );
+    .main_box {
+        height: 560px;
+        width: 480px;
+        -webkit-box-shadow: -3px 0px 46px 0px rgba(66, 89, 107, 0.37);
+        -moz-box-shadow: -3px 0px 46px 0px rgba(66, 89, 107, 0.37);
+        box-shadow: -3px 0px 46px 0px rgba(66, 89, 107, 0.37);
+        background-color: white;
+        .img_box {
+            height: 200px;
+            width: 100%;
+            img {
+                height: 200px;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .input_box {
+            padding-top: 40px;
+            height: 360px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .input_container {
+                height: 60px;
+                width: 350px;
+                margin-bottom: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                .error_message {
+                    position: absolute;
+                    left: 0;
+                    font-size: 12px;
+                    bottom: -15px;
+                    color: rgb(226, 114, 114);
+                }
+                .icon_container {
+                    height: 60px;
+                    width: 60px;
+                    border: 1px solid rgb(164, 168, 181);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: grey;
+                }
+                input {
+                    width: 290px;
+                    height: 60px;
+                    padding: 5px;
+                    font-size: 18px;
+                    border: 1px solid rgb(164, 168, 181);
+                    outline: none;
+                    &:focus {
+                        border: 1px solid rgba(124, 143, 203, 1);
+                    }
+                    &::placeholder {
+                        color: gray;
+                        font-size: 18px;
+                    }
+                    &:focus ~ .icon_container {
+                        background: rgb(23, 203, 224);
+                        background: linear-gradient(
+                            90deg,
+                            rgba(23, 203, 224, 1) 0%,
+                            rgba(82, 184, 225, 1) 0%,
+                            rgba(124, 197, 203, 1) 100%,
+                            rgba(104, 229, 246, 1) 100%
+                        );
+                        color: white;
+                    }
+                }
+            }
+            .submit {
+                margin-top: 30px;
+                height: 50px;
+                color: white;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.4s all linear;
+                background: rgb(23, 203, 224);
+                background: linear-gradient(
+                    90deg,
+                    rgba(23, 203, 224, 1) 0%,
+                    rgba(82, 184, 225, 1) 0%,
+                    rgba(124, 197, 203, 1) 100%,
+                    rgba(104, 229, 246, 1) 100%
+                );
+
+                border: none;
+                width: 350px;
+                &:hover {
+                    background-color: white;
+                    border: 1px solid rgba(124, 143, 203, 1);
+                }
+            }
+            .founder {
+                margin-top: 2rem;
+                align-items: flex-start;
+                align-self: flex-start;
+                margin-left: 60px;
+                a {
+                    color: rgba(124, 143, 203, 1);
+                    text-decoration: none;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    .login_container {
+        .main_box {
+            width: 360px;
+            .input_box {
+                padding-top: 30px;
+                height: 360px;
+                .input_container {
+                    height: 60px;
+                    width: 320px;
+                }
+                .submit {
+                    width: 320px;
+                }
+                .founder {
+                    margin-top: 2rem;
+                    align-items: flex-start;
+                    align-self: flex-start;
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}
