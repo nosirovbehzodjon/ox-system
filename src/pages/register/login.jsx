@@ -112,11 +112,11 @@ const Login = () => {
                     </form>
                     <div className={styled.founder}>
                         <a
-                            href="https://abez.uz/"
+                            href="https://ox-sys.com/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            Create by ABEZ IT Company
+                            Create by OX-System IT Company
                         </a>
                     </div>
                 </div>

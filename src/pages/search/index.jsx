@@ -81,27 +81,27 @@ const Search = () => {
             ellipsis: true,
         },
     ];
-    const data = [];
-    for (let i = 0; i < mydata?.items?.length; i++) {
-        data.push({
-            key: mydata?.items[i].id,
-            number: i + 1,
-            name: mydata?.items[i].name,
-            supplier: mydata?.items[i].supplier,
-            unit: mydata?.items[i].unit,
-            date: mydata?.items[i].lastUpdateTime,
-        });
-    }
-    const result = data
+    const result = mydata?.items
+        .map((item, i) => {
+            return {
+                key: item.id,
+                number: i + 1,
+                name: item.name ? item.name : "",
+                supplier: item.supplier,
+                unit: item.unit,
+                date: item.lastUpdateTime,
+            };
+        })
         .filter((item) =>
             item?.name.toLocaleLowerCase().includes(search.toLocaleLowerCase())
         )
-        .sort(
-            (x, y) =>
+        .sort((x, y) => {
+            return (
                 x?.name?.toLocaleLowerCase().indexOf(search) -
                 y?.name?.toLocaleLowerCase().indexOf(search)
-        );
-
+            );
+        });
+    console.log(undefined ? "" : "name".toLocaleLowerCase());
     return (
         <div>
             {contextHolder}
