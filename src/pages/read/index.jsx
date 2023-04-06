@@ -1,11 +1,13 @@
 import { Alert, notification, Space, Spin, Table } from "antd";
 import React, { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Pagination from "../../components/pagination";
 import context from "../../context";
 import { useQueryData } from "../../hooks";
 
 const Read = () => {
     const contextData = useContext(context);
+    console.log(contextData);
     const {
         data: mydata,
         isLoading,
@@ -14,7 +16,7 @@ const Read = () => {
     } = useQueryData({
         url: "red",
         method: "GET",
-        key: "red",
+        key: `read-${contextData.page}-${contextData.size}`,
     });
     const [api, contextHolder] = notification.useNotification();
     const openNotificationWithIcon = (type, message) => {
@@ -24,27 +26,23 @@ const Read = () => {
                 "This is the content of the notification. This is the content of the notification. This is the content of the notification.",
         });
     };
-    
+
     useEffect(() => {
         refetch();
     }, [contextData.page, contextData.size]);
     if (isLoading) {
         return (
-            <Space
-                direction="vertical"
+            <div
                 style={{
                     width: "100%",
-                    height: "100%",
+                    height: "500px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                 }}
             >
-                <Spin tip="Loading...">
-                    <Alert
-                        message="Alert message title"
-                        description="Further details about the context of this alert."
-                        type="info"
-                    />
-                </Spin>
-            </Space>
+                <Spin tip="Loading..."></Spin>
+            </div>
         );
     }
     if (isError) {

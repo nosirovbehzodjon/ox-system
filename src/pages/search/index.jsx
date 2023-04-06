@@ -15,7 +15,7 @@ const Search = () => {
     } = useQueryData({
         url: "search",
         method: "GET",
-        key: "search",
+        key: `search-${contextData.page}-${contextData.size}`,
     });
     useEffect(() => {
         refetch();
@@ -33,21 +33,17 @@ const Search = () => {
     };
     if (isLoading) {
         return (
-            <Space
-                direction="vertical"
+            <div
                 style={{
                     width: "100%",
-                    height: "100%",
+                    height: "500px",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                 }}
             >
-                <Spin tip="Loading...">
-                    <Alert
-                        message="Alert message title"
-                        description="Further details about the context of this alert."
-                        type="info"
-                    />
-                </Spin>
-            </Space>
+                <Spin tip="Loading..."></Spin>
+            </div>
         );
     }
     if (isError) {
