@@ -7,7 +7,6 @@ import { useQueryData } from "../../hooks";
 
 const Read = () => {
     const contextData = useContext(context);
-    console.log(contextData);
     const {
         data: mydata,
         isLoading,
